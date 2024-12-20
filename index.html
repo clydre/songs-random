@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Song Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .song-info {
+            margin: 20px 0;
+        }
+
+        .song-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .song-artist {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffdd57;
+        }
+
+        .song-link a {
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+            color: #00ffcc;
+            font-weight: bold;
+        }
+
+        .song-link a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ffcc;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00e6b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎶 Random Song Generator 🎶</h1>
+        <div class="song-info">
+            <p class="song-title" id="songTitle">Click the button to get a random song!</p>
+            <p class="song-artist" id="songArtist"></p>
+            <p class="song-link" id="songLink"></p>
+        </div>
+        <button onclick="generateRandomSong()">Generate Song</button>
+    </div>
+
+    <script>
+        const songs = [
+            { title: "Shape of You", artist: "Ed Sheeran", url: "https://www.youtube.com/watch?v=JGwWNGJdvx8" },
+            { title: "Blinding Lights", artist: "The Weeknd", url: "https://www.youtube.com/watch?v=4NRXx6U8ABQ" },
+            { title: "Rolling in the Deep", artist: "Adele", url: "https://www.youtube.com/watch?v=rYEDA3JcQqw" },
+            { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", url: "https://www.youtube.com/watch?v=OPf0YbXqDm0" },
+            { title: "Someone Like You", artist: "Adele", url: "https://www.youtube.com/watch?v=hLQl3WQQoQ0" },
+            { title: "Levitating", artist: "Dua Lipa ft. DaBaby", url: "https://www.youtube.com/watch?v=TUVcZfQe-Kw" },
+            { title: "Peaches", artist: "Justin Bieber", url: "https://www.youtube.com/watch?v=tQ0yjYUFKAE" },
+            { title: "Senorita", artist: "Shawn Mendes, Camila Cabello", url: "https://www.youtube.com/watch?v=Pkh8UtuejGw" },
+            { title: "Bad Guy", artist: "Billie Eilish", url: "https://www.youtube.com/watch?v=DyDfgMOUjCI" },
+            { title: "Thinking Out Loud", artist: "Ed Sheeran", url: "https://www.youtube.com/watch?v=lp-EO5I60KA" },
+            { title: "Closer", artist: "The Chainsmokers ft. Halsey", url: "https://www.youtube.com/watch?v=PT2_F-1esPk" },
+            { title: "Happier", artist: "Marshmello ft. Bastille", url: "https://www.youtube.com/watch?v=m7Bc3pLyij0" },
+            { title: "Old Town Road", artist: "Lil Nas X ft. Billy Ray Cyrus", url: "https://www.youtube.com/watch?v=r7qovpFAGrQ" },
+            { title: "Rockstar", artist: "Post Malone ft. 21 Savage", url: "https://www.youtube.com/watch?v=UceaB4D0jpo" },
+            { title: "Shake It Off", artist: "Taylor Swift", url: "https://www.youtube.com/watch?v=nfWlot6h_JM" }
+        ];
+
+        function generateRandomSong() {
+            const randomIndex = Math.floor(Math.random() * songs.length);
+            const randomSong = songs[randomIndex];
+
+            
+            document.getElementById('songTitle').textContent = randomSong.title;
+            document.getElementById('songArtist').textContent = `By: ${randomSong.artist}`;
+            document.getElementById('songLink').innerHTML = `<a href="${randomSong.url}" target="_blank">Listen Here</a>`;
+        }
+    </script>
+</body>
+</html>
